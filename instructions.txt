@@ -1,0 +1,28 @@
+cd ~/cmsc330spring25
+dune init proj discussions # dune will create a new directory named discussions
+code discussions # open VSCode
+
+# all the following steps should be inside of the discussions folder. either `cd` into it, or use the VSCode terminal inside of the windows that just opened.
+
+dune build # run this to setup the lib folder
+
+# Optional: Add a .gitignore and commit initial setup. Copy the .gitignore file from your project 1 folder. `ls` usually hides files/folders that start with `.`, so run `ls -a` to see all files.
+
+code lib/disc2.ml # add your code to this file
+code test/dune # replace with the following. this tells the compiler to import the discussions module and setup a separate test file test_disc2
+```
+(tests
+ (names test_discussions test_disc2)
+ (libraries discussions oUnit))
+```
+code test/test_disc2.ml # add your tests to this file (copy structure from project1's tests/public/public.ml)
+dune build
+dune runtest
+dune utop lib # open the repl. Then run `open Discussions.Disc2;;`
+
+
+# Other tips and tricks (these commands are for windows; replace ctrl with command for MacOS)
+Ctrl + shift + p opens the command UI
+ctrl + ` to open/close the terminal in vscode
+Ctrl + L clears the terminal in utop
+Ctrl + p to open files in vscode
