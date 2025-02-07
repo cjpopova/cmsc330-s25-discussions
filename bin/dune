@@ -1,0 +1,4 @@
+(executable
+ (public_name discussions)
+ (name main)
+ (libraries discussions))
